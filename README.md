@@ -4,7 +4,7 @@
 
 ## Team Members
 
-```
+
 Elizabeth Mullinax, [ellievoir](<https://github.com/orgs/F25MIST4610-62755-Group7/people/ellievoir>)
 
 Josie Rowe, [jlr75202](<https://github.com/orgs/F25MIST4610-62755-Group7/people/jlr75202>)
@@ -15,14 +15,12 @@ Harry Tear, [harryt4](<https://github.com/orgs/F25MIST4610-62755-Group7/people/h
 
 Ethan Rausch, [ear35971](<https://github.com/orgs/F25MIST4610-62755-Group7/people/ear35971>)
 
-```
+
 
 ## Scenario Description
 
-```
-The **`ns_F25MIST4610_62755_Group7`** database is an operational management system for a bar or restaurant that tracks daily activities such as orders, ingredient usage, staff shifts, vendor purchases, and payments. It connects all aspects of operations—from drinks served to inventory consumed—to help managers monitor performance, control costs, and make data-driven decisions for smoother, more efficient business management.
 
-```
+The **`ns_F25MIST4610_62755_Group7`** database is an operational management system for a bar or restaurant that tracks daily activities such as orders, ingredient usage, staff shifts, vendor purchases, and payments. It connects all aspects of operations—from drinks served to inventory consumed—to help managers monitor performance, control costs, and make data-driven decisions for smoother, more efficient business management.
 
 A restaurant company has asked us to create a data model to record daily activities such as orders, ingredient usage, staff shifts, vendor purchases, payments, clients, and client feedback of its bars at various locations. Every location is open from 4pm - 2am. For each bartender, the client wants to record details about who supervises who, how much tips each bartender makes, and how many drinks they’ve made. Supervisors can earn tips and make drinks. Each bartender can only work at one location. Tips are sent directly to the bartender who took and prepared the order via the payment entity. For each drink, the client wants to track how many ingredients are supposed to be used in each drink (ie. a recipe.) Each night the alcohol is weighed to understand how much alcohol was actually used that day. Customers have the option of answering a customer satisfaction survey rating the atmosphere, service, and staff on a 5-star scale and make any additional comments every time they close out their tab.
 

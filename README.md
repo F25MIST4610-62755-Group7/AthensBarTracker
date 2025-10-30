@@ -1,17 +1,13 @@
-# The Bar
+# MIST4610 62755 Group 7 Project
 
 ## Team Members
 
 
-Elizabeth Mullinax, [ellievoir](<https://github.com/orgs/F25MIST4610-62755-Group7/people/ellievoir>)
-
-Josie Rowe, [jlr75202](<https://github.com/orgs/F25MIST4610-62755-Group7/people/jlr75202>)
-
-Bradford Moye, [bradfordmoye](<https://github.com/orgs/F25MIST4610-62755-Group7/people/bradfordmoye>)
-
-Harry Tear, [harryt4](<https://github.com/orgs/F25MIST4610-62755-Group7/people/harryt4>)
-
-Ethan Rausch, [ear35971](<https://github.com/orgs/F25MIST4610-62755-Group7/people/ear35971>)
+1. Elizabeth Mullinax, [ellievoir](<https://github.com/orgs/F25MIST4610-62755-Group7/people/ellievoir>)
+2. Josie Rowe, [jlr75202](<https://github.com/orgs/F25MIST4610-62755-Group7/people/jlr75202>)
+3. Bradford Moye, [bradfordmoye](<https://github.com/orgs/F25MIST4610-62755-Group7/people/bradfordmoye>)
+4. Harry Tear, [harryt4](<https://github.com/orgs/F25MIST4610-62755-Group7/people/harryt4>)
+5. Ethan Rausch, [ear35971](<https://github.com/orgs/F25MIST4610-62755-Group7/people/ear35971>)
 
 
 
@@ -33,9 +29,7 @@ Each night the alcohol is weighed to understand how much alcohol was actually us
 
 The LineItem entity features how many of each drink is ordered per order. While the Orders entity recounts every order that is made and the time that it is ordered. At the end of the night, clients can close out their tab covering multiple orders with only one payment. The time of payment is recorded separately from the time the order is made. Clients also have the option of leaving feedback as they take their orders, rating their satisfaction with the atmosphere, drinks, and staff on a 1-5 scale as well as leaving any additional comments. 
 
-With each order, the bartender (or bar supervisor) who takes the order from the client is also the one who mixes the drink and receives any tips that the client gives via the payment entity. Each employee can only work at one location hence the identifying relationship. There is one supervisor per location with multiple people under them as represented by the one-many relationship to and from the Employees entity. 
-
-For each shift, the total amount that the employee made from their hourly wage is calculated as basePay while any tips earned (tipsPay) are calculated separately. Shifts are flexible and vary based on employee availability. Unlike some bars there is not a set time for 1st, 2nd, and 3rd shift.
+With each order, the bartender (or bar supervisor) who takes the order from the client is also the one who mixes the drink and receives any tips that the client gives via the payment entity. Each employee can only work at one location hence the identifying relationship. There is one supervisor per location with multiple people under them as represented by the one-many relationship to and from the Employees entity. For each shift, the total amount that the employee made from their hourly wage is calculated as basePay while any tips earned (tipsPay) are calculated separately. Shifts are flexible and vary based on employee availability. Unlike some bars there is not a set time for 1st, 2nd, and 3rd shift.
 
 ## Data Dictionary
 

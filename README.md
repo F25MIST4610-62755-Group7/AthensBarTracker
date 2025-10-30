@@ -22,9 +22,21 @@ The **`ns_F25MIST4610_62755_Group7`** database is an operational management sy
 
 A restaurant company has asked us to create a data model to record daily activities such as orders, ingredient usage, staff shifts, vendor purchases, payments, clients, and client feedback of its bars at various locations. Every location is open from 4pm - 2am. For each bartender, the client wants to record details about who supervises who, how much tips each bartender makes, and how many drinks they’ve made. Supervisors can earn tips and make drinks. Each bartender can only work at one location. Tips are sent directly to the bartender who took and prepared the order via the payment entity. For each drink, the client wants to track how many ingredients are supposed to be used in each drink (ie. a recipe.) Each night the alcohol is weighed to understand how much alcohol was actually used that day. Customers have the option of answering a customer satisfaction survey rating the atmosphere, service, and staff on a 5-star scale and make any additional comments every time they close out their tab.
 
-## Datamodel PNG
+## Data Model
 
 <img width="911" height="1140" alt="SQL_Model_v5" src="https://github.com/user-attachments/assets/c03bbaa5-24a1-4f40-8eb1-2d1dd163898d" />
+
+Our model is based on the structure of a bar company with various locations. The primary focuses of the data model are the drinks costs and profits, employee performance, and overall bar popularity. 
+
+To understand the drink costs and profits each ingredient purchase is recorded into a log at the time of purchase. Some purchases are made on a recurring bases, while others are made as-needed (ie. when they notice the stock is getting low) or bought in a rush (ie. when stock gets lower much faster than expected and more of an ingredient is needed before the vendor shipment can arrive.) Rush purchases are often much smaller, more expensive, and bought locally. Ingredients come in cases (also known as boxes) and can vary from alcohol to non-liquid items (ie. fruit, herbs, etc) that are mixed into drinks. Each ingredient ever purchased is stored in the ingredients table, alongside how much each case of the ingredient weighs, and the price of each case. 
+
+Each night the alcohol is weighed to understand how much alcohol was actually used that day which is marked in the ConsumptionLog. The metric used to weigh the ingredient varies where liquid ingredients come in ml and non-liquids come in grams is stored in the amtMetric attribute, again in the weightMetric attribute of the Ingredients entity, and again in the drink_amtUsed attribute of the Drink_has_Ingredients entity. The Drink_has_ingredients entity which essentially stores how much of each ingredient is used for various drinks, a sort of recipe holder. This then goes onto the DrinkMenu entity where all drinks that could have been purchased at the bar are listed, some drinks are not currently on the menu hence returning a “FALSE” value in the is_active attribute. It’s important to store inactive drinks as some become active again during seasons, holidays, game days, etc.
+
+The LineItem entity features how many of each drink is ordered per order. While the Orders entity recounts every order that is made and the time that it is ordered. At the end of the night, clients can close out their tab covering multiple orders with only one payment. The time of payment is recorded separately from the time the order is made. Clients also have the option of leaving feedback as they take their orders, rating their satisfaction with the atmosphere, drinks, and staff on a 1-5 scale as well as leaving any additional comments. 
+
+With each order, the bartender (or bar supervisor) who takes the order from the client is also the one who mixes the drink and receives any tips that the client gives via the payment entity. Each employee can only work at one location hence the identifying relationship. There is one supervisor per location with multiple people under them as represented by the one-many relationship to and from the Employees entity. 
+
+For each shift, the total amount that the employee made from their hourly wage is calculated as basePay while any tips earned (tipsPay) are calculated separately. Shifts are flexible and vary based on employee availability. Unlike some bars there is not a set time for 1st, 2nd, and 3rd shift.
 
 ## Data Dictionary
 

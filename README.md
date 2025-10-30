@@ -196,7 +196,9 @@ With each order, the bartender (or bar supervisor) who takes the order from the 
 | vendorName | Vendor name | VARCHAR | 45 |  |  |
 | vendorWebsite | Vendor website | VARCHAR | 45 |  |  |
 
-## Queries, Justifications, and Results
+## Queries and Justifications
+
+*Complex*
 
 ### Measure of Bartender Popularity
 
@@ -261,6 +263,33 @@ ORDER BY timesOrdered DESC;
 
 Bars often want to know their highest-performing menu items. We select the drink name, price, and the number of times it has been ordered. Then, we filter the results to only the top 50%.
 
+### When does the bar have the most sales?
+
+```
+
+SELECT 
+ DAYNAME(Orders.orderTime) AS Weekday,
+  CASE
+    WHEN TIME(Orders.orderTime) BETWEEN '00:00:00' AND '02:00:00' THEN '12AM - 2AM'
+    WHEN TIME(Orders.orderTime) BETWEEN '21:00:00' AND '23:59:59' THEN '9PM - 12AM'
+    WHEN TIME(Orders.orderTime) BETWEEN '16:00:00' AND '20:59:59' THEN '4PM - 9PM'
+    ELSE 'Undefined'
+  END AS `Time of Day`, 
+  SUM(LineItem.qtyOrdered) AS Sold
+FROM LineItem
+JOIN Orders ON Orders.orderID = LineItem.orderID
+GROUP BY 
+  DAYNAME(Orders.orderTime),
+  CASE
+    WHEN TIME(Orders.orderTime) BETWEEN '00:00:00' AND '02:00:00' THEN '12AM - 2AM'
+    WHEN TIME(Orders.orderTime) BETWEEN '21:00:00' AND '23:59:59' THEN '9PM - 12AM'
+    WHEN TIME(Orders.orderTime) BETWEEN '16:00:00' AND '20:59:59' THEN '4PM - 9PM'
+    ELSE 'Undefined'
+  END
+ORDER BY Sold;
+
+```
+
 ### Which vendor do we do the most business with?
 
 ```
@@ -305,6 +334,8 @@ ORDER BY totalHoursWorked DESC;
 
 ```
 
+*Simple*
+
 ### How frequently do ingredients appear in our recipes?
 
 ```
@@ -316,32 +347,6 @@ GROUP BY Ingredients.ingredientName
 ORDER BY RecipesUsing;
 ```
 
-### When does the bar have the most sales?
-
-```
-
-SELECT 
- DAYNAME(Orders.orderTime) AS Weekday,
-  CASE
-    WHEN TIME(Orders.orderTime) BETWEEN '00:00:00' AND '02:00:00' THEN '12AM - 2AM'
-    WHEN TIME(Orders.orderTime) BETWEEN '21:00:00' AND '23:59:59' THEN '9PM - 12AM'
-    WHEN TIME(Orders.orderTime) BETWEEN '16:00:00' AND '20:59:59' THEN '4PM - 9PM'
-    ELSE 'Undefined'
-  END AS `Time of Day`, 
-  SUM(LineItem.qtyOrdered) AS Sold
-FROM LineItem
-JOIN Orders ON Orders.orderID = LineItem.orderID
-GROUP BY 
-  DAYNAME(Orders.orderTime),
-  CASE
-    WHEN TIME(Orders.orderTime) BETWEEN '00:00:00' AND '02:00:00' THEN '12AM - 2AM'
-    WHEN TIME(Orders.orderTime) BETWEEN '21:00:00' AND '23:59:59' THEN '9PM - 12AM'
-    WHEN TIME(Orders.orderTime) BETWEEN '16:00:00' AND '20:59:59' THEN '4PM - 9PM'
-    ELSE 'Undefined'
-  END
-ORDER BY Sold;
-
-```
 
 ### How many people does each supervisor manage?
 

@@ -390,4 +390,4 @@ FROM Feedback;
 ## Technology Usage Disclaimer
 
 
-The [“Markdown Format report schema” MySQL Workbench plugin by tmsanchez on GitHub](<https://github.com/tmsanchez/workbenchscripts>) was used to create the initial draft of the data dictionary. Copilot AI was then used to: alter the column names to match the format seen in “**MIST 4610 DB Dictionary”** on the ELC**,** update datatypes, and fill the format column. [Claude.ai](<http://Claude.ai>) was used to generate dummy data.
+The [“Markdown Format report schema” MySQL Workbench plugin by tmsanchez on GitHub](<https://github.com/tmsanchez/workbenchscripts>) was used to create the initial draft of the data dictionary. Copilot AI was then used to: alter the column names to match the format seen in “**MIST 4610 DB Dictionary”** on the ELC, update datatypes, and fill the format column. [Claude.ai](<http://Claude.ai>) was used to generate dummy data.

@@ -93,7 +93,7 @@ For each shift, the total amount that the employee made from their hourly wage i
 | employeeLName | Employee last name | VARCHAR | 45 |  |  |
 | employeePosition | Employee position or title | VARCHAR | 45 |  |  |
 | supervisorID | Supervisor employee identifier | INT | - |  | **FK** |
-| locationID | Location identifier where employee works | INT | - |  | **FK** |
+| Locations_locationID | Location identifier where employee works | INT | - |  | **FK** |
 
 ---
 
@@ -119,7 +119,7 @@ For each shift, the total amount that the employee made from their hourly wage i
 | weightPerCase | Weight per case | INT | - |  |  |
 | weightMetric | Unit for weightPerCase | VARCHAR | 45 |  |  |
 | casePrice | Price per case | DECIMAL | 10,2 |  |  |
-| vendorID | Vendor identifier supplying ingredient | INT | - |  | **FK** |
+| Vendors_vendorID | Vendor identifier supplying ingredient | INT | - |  | **FK** |
 
 ---
 
@@ -130,7 +130,7 @@ For each shift, the total amount that the employee made from their hourly wage i
 | lineItemID | Line item identifier | INT | - |  | **PK** |
 | qtyOrdered | Quantity ordered for this line item | INT | - |  |  |
 | orderID | Linked order identifier | INT | - |  | **FK** |
-| drinkID | Linked drink identifier from menu | INT | - |  | **FK** |
+| DrinkMenu_drinkID | Linked drink identifier from menu | INT | - |  | **FK** |
 
 ---
 
@@ -150,9 +150,9 @@ For each shift, the total amount that the employee made from their hourly wage i
 | --- | --- | --- | --- | --- | --- |
 | orderID | Order identifier | INT | - |  | **PK** |
 | orderTime | Date and time of order | DATETIME | - | MM/DD/YYYY HH:MM:SS |  |
-| clientID | Linked client identifier | INT | - |  | **FK** |
-| employeeID | Linked employee identifier (who took/served) | INT | - |  | **FK** |
-| paymentID | Linked payment identifier for the order | INT | - |  | **FK** |
+| Clients_clientID | Linked client identifier | INT | - |  | **FK** |
+| Employees_employeeID | Linked employee identifier (who took/served) | INT | - |  | **FK** |
+| Payments_paymentID | Linked payment identifier for the order | INT | - |  | **FK** |
 
 ---
 

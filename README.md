@@ -17,10 +17,9 @@ Ethan Rausch, [ear35971](<https://github.com/orgs/F25MIST4610-62755-Group7/peopl
 
 ## Scenario Description
 
+The **`ns_F25MIST4610_62755_Group7`** database is an operational management system for a bar that tracks daily activities such as orders, ingredient usage, staff shifts, vendor purchases, and payments. It connects all aspects of operations—from drinks served to inventory consumed—to help managers monitor performance, control costs, and make data-driven decisions for smoother, more efficient business management.
 
-The **`ns_F25MIST4610_62755_Group7`** database is an operational management system for a bar or restaurant that tracks daily activities such as orders, ingredient usage, staff shifts, vendor purchases, and payments. It connects all aspects of operations—from drinks served to inventory consumed—to help managers monitor performance, control costs, and make data-driven decisions for smoother, more efficient business management.
-
-A restaurant company has asked us to create a data model to record daily activities such as orders, ingredient usage, staff shifts, vendor purchases, payments, clients, and client feedback of its bars at various locations. Every location is open from 4pm - 2am. For each bartender, the client wants to record details about who supervises who, how much tips each bartender makes, and how many drinks they’ve made. Supervisors can earn tips and make drinks. Each bartender can only work at one location. Tips are sent directly to the bartender who took and prepared the order via the payment entity. For each drink, the client wants to track how many ingredients are supposed to be used in each drink (ie. a recipe.) Each night the alcohol is weighed to understand how much alcohol was actually used that day. Customers have the option of answering a customer satisfaction survey rating the atmosphere, service, and staff on a 5-star scale and make any additional comments every time they close out their tab.
+We aim to analyze the operations of a single bar company across multiple locations to identify what drives profits and losses. By tracking drink orders, ingredient usage vs purchasing, and vendor behavior, we can assess cost efficiency, recipe profitability, and inventory strategy. Linking this to employee shifts, tips, and customer feedback allows us to evaluate staff performance and bar popularity. This integrated model supports data-driven improvements in profitability and customer experience. 
 
 ## Data Model
 
@@ -390,4 +389,4 @@ FROM Feedback;
 ## Technology Usage Disclaimer
 
 
-The [“Markdown Format report schema” MySQL Workbench plugin by tmsanchez on GitHub](<https://github.com/tmsanchez/workbenchscripts>) was used to create the initial draft of the data dictionary. Copilot AI was then used to: alter the column names to match the format seen in “**MIST 4610 DB Dictionary”** on the ELC, update datatypes, and fill the format column. [Claude.ai](<http://Claude.ai>) was used to generate dummy data.
+The [“Markdown Format report schema” MySQL Workbench plugin by tmsanchez on GitHub](<https://github.com/tmsanchez/workbenchscripts>) was used to create the initial draft of the data dictionary. Copilot AI was then used to: alter the column names to match the format seen in “**MIST 4610 DB Dictionary”** on the ELC, update datatypes, and fill the format column. [Claude.ai](<http://Claude.ai>) was used to generate dummy data and assisted in writing the scenario description. 

@@ -198,7 +198,7 @@ With each order, the bartender (or bar supervisor) who takes the order from the 
 
 ## Queries and Justifications
 
-*Complex*
+***Complex***
 
 ### Measure of Bartender Popularity
 
@@ -218,7 +218,7 @@ GROUP BY Employees.employeeFName, Employees.employeeLName
 ORDER BY Popularity DESC;
 ```
 
-To measure the popularity of each bartender, we used the amount of tips earned and then divided it by the square root of drinks served multiplied by the number of hours worked. This is because although tips show how likable a bartender is, the number of tips a bartender earns can be inflated by their working longer than other bartenders or serving more drinks overall. This shows bar managers which of their best-performing bartenders are.
+*Written by Elizabeth Mullinax*, To measure the popularity of each bartender, we used the amount of tips earned and then divided it by the square root of drinks served multiplied by the number of hours worked. This is because although tips show how likable a bartender is, the number of tips a bartender earns can be inflated by their working longer than other bartenders or serving more drinks overall. This shows bar managers which of their best-performing bartenders are.
 
 ### Where do we experience the most ingredient shrinkage?
 
@@ -238,7 +238,7 @@ GROUP BY Ingredients.ingredientName, ExpectedConsumption.DrinksCost;
 
 ```
 
-Ingredient shrinkage refers to the difference between how much of an ingredient we expect to use based on drinks served vs how much of each ingredient was actually used. This shows us how many unnecessary inventory losses bars are experiencing, if any. Some loss is normal, as spills or other accidents happen. However, this can also be a great indicator of theft. Other times, bartenders will intentionally pour more alcohol than they are allowed to earn more tips, a practice known as overpouring.
+*Written by Elizabeth Mullinax*, Ingredient shrinkage refers to the difference between how much of an ingredient we expect to use based on drinks served vs how much of each ingredient was actually used. This shows us how many unnecessary inventory losses bars are experiencing, if any. Some loss is normal, as spills or other accidents happen. However, this can also be a great indicator of theft. Other times, bartenders will intentionally pour more alcohol than they are allowed to earn more tips, a practice known as overpouring.
 
 ### Which drinks have a higher-than-average number of orders?
 
@@ -261,7 +261,7 @@ ORDER BY timesOrdered DESC;
 
 ```
 
-Bars often want to know their highest-performing menu items. We select the drink name, price, and the number of times it has been ordered. Then, we filter the results to only the top 50%.
+*Written by Bradford Moye*, Bars often want to know their highest-performing menu items. We select the drink name, price, and the number of times it has been ordered. Then, we filter the results to only the top 50%.
 
 ### When does the bar have the most sales?
 
@@ -289,6 +289,7 @@ GROUP BY
 ORDER BY Sold;
 
 ```
+*Written by Elizabeth Mullinax*, The time of night that a bar is most popular can help guide decisions on how long the bar should stay open and when.  
 
 ### Which vendor do we do the most business with?
 
@@ -314,7 +315,7 @@ ORDER BY total_spent DESC;
 
 ```
 
-It's useful to know which vendors you work with the most. First we find the total spend with each vendor by summing all transactions. Next, we select vendors with a total spend higher than the average.
+*Written by Bradford Moye*, It's useful to know which vendors you work with the most. First we find the total spend with each vendor by summing all transactions. Next, we select vendors with a total spend higher than the average.
 
 ### Which employee worked the most shifts?
 
@@ -334,7 +335,9 @@ ORDER BY totalHoursWorked DESC;
 
 ```
 
-*Simple*
+*Written by Bradford Moye* 
+
+***Simple***
 
 ### How frequently do ingredients appear in our recipes?
 
@@ -347,6 +350,7 @@ GROUP BY Ingredients.ingredientName
 ORDER BY RecipesUsing;
 ```
 
+*Written by Elizabeth Mullinax*, Understanding what ingredients are used least, especially if those ingredients are in less popular drinks, can guide decisions on what drinks should stay on the menu and which ones shouldn't. 
 
 ### How many people does each supervisor manage?
 
@@ -359,6 +363,8 @@ GROUP BY supervisorId, sup.employeeFName, sup.employeeLName
 ORDER BY NumEmpManaged DESC;
 
 ```
+*Written by Bradford Moye*
+
 
 ### List the first and last name of bartenders, where they work, and the number of orders they have received from most to least.
 
@@ -367,10 +373,11 @@ SELECT CONCAT(Employees.employeeFName,' ', Employees.employeeLName) AS Employee,
 FROM Employees
 JOIN Locations ON Locations.locationID = Employees.Locations_locationID
 JOIN Orders ON Employees.employeeID = Orders.Employees_employeeID
-GROUP BY employeeFName, employeeLName, locName
+GROUP BY Employee, locName
 ORDER BY COUNT(orderID);
 
 ```
+*Written by Harry Tear*
 
 ### List the average rating of ordered items, staff, and atmosphere and the overall bar rating.
 
@@ -384,6 +391,7 @@ SELECT
 FROM Feedback;
 
 ```
+*Written by Josie Rowe*, A manager would be able to gauge the bars performance and customer satisfaction by category and as a whole. This would allow the manager to see which areas need improvement/where the bar is excelling and have an understanding of how customers feel about the bar. 
 
 ## Technology Usage Disclaimer
 
